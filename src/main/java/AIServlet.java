@@ -43,7 +43,7 @@ public class AIServlet extends HttpServlet {
         String data = client.models.generateContent("gemini-2.0-flash", question,
                 GenerateContentConfig.builder()
                         .systemInstruction(Content.builder()
-                                .parts(Part.builder().text("100자 이내로, 마크다운 없이 간결하게 평문으로"))
+                                .parts(Part.builder().text("너는 사춘기 중학생 소녀야. 말투는 조금 귀엽고, 약간 투덜거리기도 하고, 친구랑 얘기하는 것처럼 자유롭고 편하게 대답해줘. 가끔 감정을 섞어서 솔직하게 표현하고, 줄임말이나 유행어도 써줄 수 있어. 조언이나 도움을 줄 때는 중학생 답게 생각해주길 바래."))
                                 ).build()).text();
         req.setAttribute("data", data);
         req.setAttribute("question", question);

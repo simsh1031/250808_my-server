@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>AI Chatbot</title>
-  <meta property="og:title" content="AI Chatbot">
+  <meta property="og:title" content="사춘기 청소년과 대화하기">
   <meta property="og:description" content="by Gemini 2.0 flash">
   <style>
     @font-face {
@@ -12,35 +12,64 @@
       font-style: normal;
     }
 
+    @font-face {
+      font-family: 'GangwonEduSaeeum_OTFMediumA';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduSaeeum_OTFMediumA.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
-      font-family: 'TheJamsil5Bold', sans-serif;
-      background: linear-gradient(135deg, #f0f4ff, #e2ebff);
-      color: #333;
+      font-family: 'GangwonEduSaeeum_OTFMediumA', cursive;
+      background: linear-gradient(135deg, #ffe6f0, #e9d5ff);
       margin: 0;
       padding: 0;
     }
 
     .container {
       max-width: 600px;
-      margin: 50px auto;
+      margin: 40px auto;
       background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 25px;
+      border: 3px solid #ffd6eb;
     }
 
     h1 {
       text-align: center;
-      color: #4a6cf7;
-      margin-bottom: 20px;
+      color: #ff80ab;
+      margin-bottom: 25px;
+      font-family: 'TheJamsil5Bold';
     }
 
-    p {
-      background: #f8faff;
-      padding: 12px 15px;
-      border-radius: 8px;
-      margin-bottom: 15px;
+    .chat-box {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .bubble {
+      max-width: 75%;
+      padding: 12px 16px;
+      border-radius: 18px;
       line-height: 1.5;
+      font-size: 15px;
+      word-break: break-word;
+    }
+
+    .question {
+      align-self: flex-end;
+      background: #ffb6c1;
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .answer {
+      align-self: flex-start;
+      background: #e6e0ff;
+      color: #4a3f6b;
+      border-bottom-left-radius: 4px;
     }
 
     form {
@@ -51,41 +80,51 @@
 
     input[name="question"] {
       flex: 1;
-      padding: 10px 12px;
-      border-radius: 8px;
-      border: 1px solid #ccd4ff;
+      padding: 12px 15px;
+      border-radius: 25px;
+      border: 2px solid #ffb6c1;
       outline: none;
       font-size: 14px;
+      background: #fff0f6;
       transition: 0.3s;
     }
     input[name="question"]:focus {
-      border-color: #4a6cf7;
-      box-shadow: 0 0 5px rgba(74,108,247,0.3);
+      border-color: #ff80ab;
+      background: #ffe6f0;
+      box-shadow: 0 0 8px rgba(255,128,171,0.4);
     }
 
     button {
-      background: #4a6cf7;
+      background: #ff80ab;
       color: white;
       border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
+      padding: 12px 18px;
+      border-radius: 25px;
       cursor: pointer;
-      transition: background 0.3s;
       font-size: 14px;
+      transition: 0.3s;
+      font-family: 'TheJamsil5Bold';
     }
     button:hover {
-      background: #3755c7;
+      background: #ff4f94;
+      box-shadow: 0 0 8px rgba(255,79,148,0.5);
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>🤖 AI Chatbot</h1>
-  <p><strong>질문:</strong> <%= request.getAttribute("question") %></p>
-  <p><%= request.getAttribute("data") %></p>
+  <h1>🌸 AI Chatbot 🌸</h1>
+  <div class="chat-box">
+    <% if (request.getAttribute("question") != null) { %>
+    <div class="bubble question"><%= request.getAttribute("question") %></div>
+    <% } %>
+    <% if (request.getAttribute("data") != null) { %>
+    <div class="bubble answer"><%= request.getAttribute("data") %></div>
+    <% } %>
+  </div>
   <form method="post">
-    <input name="question" placeholder="질문을 입력하세요...">
-    <button>질문하기</button>
+    <input name="question" placeholder="궁금한 걸 물어봐~ 💬">
+    <button>💌 보내기</button>
   </form>
 </div>
 </body>
