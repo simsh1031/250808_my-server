@@ -51,10 +51,10 @@
 
     .bubble {
       max-width: 75%;
-      padding: 12px 16px;
+      padding: 14px 18px; /* 패딩도 조금 늘려서 여유있게 */
       border-radius: 18px;
-      line-height: 1.5;
-      font-size: 15px;
+      line-height: 1.6;
+      font-size: 18px; /* 기존 15px → 18px */
       word-break: break-word;
     }
 
