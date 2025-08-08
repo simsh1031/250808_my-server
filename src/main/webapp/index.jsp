@@ -9,7 +9,7 @@
     <style>
         /* 전체 레이아웃 */
         :root{
-            --bg: linear-gradient(135deg,#f8f0ff 0%, #e0fbff 50%, #fff7e6 100%);
+            --bg: linear-gradient(135deg,#f8f0ff 0%, #e0fbff 60%, #fff7e6 100%);
             --card-bg: rgba(255,255,255,0.75);
             --glass: rgba(255,255,255,0.5);
             --accent1: #ff6b6b;
